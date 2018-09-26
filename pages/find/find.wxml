@@ -1,0 +1,66 @@
+<view class='top'>
+  <input class="weui-input" bindinput="findInput" placeholder="请输入关键字" style='border:1rpx solid #D9D9D9;border-radius:25px;width:100%;padding-left:20rpx;margin-right:20rpx;'/>
+  <image src="/img/find.png" bindtap='findClick' mode="aspectFit" style='height:50rpx;width:50rpx;margin-top:15rpx;'></image>
+</view>
+  <scroll-view class='films' scroll-y="true" bindscrolltolower="lower" bindscrolltoupper="bindscrolltoupper" style="height:{{scrollHeight}}px" >
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>唐诗宋词</text>
+      </view>
+      <view class='find'>
+        <text style="padding:5px 10px;" wx:for='{{poem}}' wx:key='{{index}}' bindtap='poemDetail' data-id='{{item.id}}'>{{item.name}}</text>
+      </view>
+      <view bindtap='idiom_toggleText' style='padding:10px;padding-right:0px;'>
+        <text>更多</text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>相关成语</text>
+      </view>
+      <view class='find'>
+        <text style="padding:5px 10px;" wx:for='{{idiom}}' wx:key='{{index}}' bindtap='idiomDetail' data-id='{{item.id}}'>{{item.name}}</text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>歇后语</text>
+      </view>
+      <view class='text'>
+        <text style='text-align:center;' wx:for='{{two_part}}' wx:key='{{index}}' bindtap='two_partDetail' data-id='{{item.id}}'>{{item.question}}————{{item.answer}}</text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>名人名言</text>
+      </view>
+      <view class='text'>
+        <text style='text-align:left;' wx:for='{{quotes}}' wx:key='{{index}}' bindtap='quotesDetail' data-id='{{item.id}}'>{{item.famous_name}}：{{item.famous_saying}}</text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>新华字典</text>
+      </view>
+      <view class='text'>
+        <text style='text-align:left;' wx:for='{{dic}}' wx:key='{{index}}' bindtap='dicDetail' data-id='{{item.id}}'>
+          <text style='font-size:16px;font-weight:bold;'>{{item.hanzi}}[{{item.duyin}}]</text>
+          <text style='font-size:10px;'>部首：{{item.bushou}};  笔画：{{item.bihua}}</text>
+          <text style='font-size:14px;'>解释：{{item.jianjie}}</text>
+          <text>详解：{{item.xiangjie}}</text>
+        </text>
+      </view>
+    </view>
+    <!--<view class='main'>
+      <view wx:for='{{daily}}' class='film' wx:key='{{index}}'>
+        <view style='margin-left:10px;display: flex;border-bottom:1px solid #ccc;'>
+          <view class='detail' bindtap='bindDetail' data-id='{{item.id}}'>
+            <title>{{item.year}}年{{item.month}}月{{item.day}}日{{item.title}}
+              
+          </view>
+        </view>
+      </view>
+      <view class='loading' hidden='{{!loading}}'>正在加载...</view>
+      <view class='complete' hidden='{{!comp}}'>已加载所有数据！</view>
+    </view>-->
+  </scroll-view>

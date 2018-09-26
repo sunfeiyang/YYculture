@@ -1,0 +1,13 @@
+<scroll-view class='films' scroll-y="true" bindscrolltolower="lower" bindscrolltoupper="bindscrolltoupper" style="height:{{scrollHeight}}px" >
+  <view class="info">
+    <view style='padding:5px 20px;font-size:16px;border-bottom:1px solid #ccc;border-top:1px solid #ccc'>
+      <title style='font-size:16px;font-weight:bold;'>{{idiom.name}}</title><text style='font-size:10px;'>[{{idiom.spell}}]</text>
+    </view>
+    <view class='find' style="padding:5px 10px;">
+      <text>{{idiom.content}}</text>
+    </view>
+    <view class='find' style="padding:5px 10px;">
+      <text>{{idiom.derivation}}{{idiom.samples}}</text>
+    </view>
+  </view>
+</scroll-view>

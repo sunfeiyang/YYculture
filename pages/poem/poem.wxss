@@ -1,0 +1,83 @@
+/**index.wxss**/
+/*内容主体*/
+.info .text{
+	transition: 1s;
+}
+.info .text text{
+	padding:5px;
+  margin:5px;
+	font-size:14px;
+	overflow: hidden;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    transition: 1s;
+}
+.info .find text{
+	padding:5px;
+	font-size:14px;
+	overflow: hidden;
+    -webkit-box-orient: vertical;
+    transition: 1s;
+}
+.controlText{
+	text-align: center;
+}
+.controlText text{
+	display:inline-block;
+	width:28px;
+	height:20px;
+}
+.controlText text:after{
+	content:'';
+	display: block;
+	width:10px;
+	height:10px;
+	border: 1px solid;
+	border-left-width: 0;
+	border-top-width: 0;
+	transform: rotate(45deg);
+}
+.controlText{
+	text-align: center;
+}
+.controlText text{
+	display:inline-block;
+	width:28px;
+	height:20px;
+}
+.controlText text:after{
+	content:'';
+	display: block;
+	width:10px;
+	height:10px;
+	border: 1px solid;
+	border-left-width: 0;
+	border-top-width: 0;
+	transform: rotate(45deg);
+}
+.down text:after{
+	content:'';
+	display: block;
+	width:10px;
+	height:10px;
+	border: 1px solid;
+	border-left-width: 0;
+	border-top-width: 0;
+	transform: rotate(-135deg);
+}
+
+.content{
+  font-size: 16px
+}
+
+.loading{
+	text-align: center;
+	color:#999;
+	font-size:16px;
+  margin-top:20px;
+}
+.complete{
+	text-align: center;
+	color:#999;
+	font-size:16px;
+}

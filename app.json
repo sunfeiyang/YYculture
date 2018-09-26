@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/dic/dic",
+    "pages/daily/daily",
+    "pages/find/find",
+    "pages/poem/poem",
+    "pages/idiom/idiom"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#bb99ff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{  
+      "selectedColor":"#ccb3ff",  
+      "color": "#999",  
+      "backgroundColor":"#eee5ff",
+      "position":"bottom",  
+      "list":[{  
+          "text" : "字典查询",  
+          "pagePath" : "pages/dic/dic",
+          "iconPath": "img/nodic.png",
+          "selectedIconPath": "img/dic.png"
+      },{
+        "text": "历史重温",
+        "pagePath": "pages/daily/daily",
+        "iconPath": "img/nohistory.png",
+        "selectedIconPath": "img/history.png"
+      }]
+  }
+}

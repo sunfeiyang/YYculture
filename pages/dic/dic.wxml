@@ -1,0 +1,124 @@
+<view class='top'>
+  <input class="weui-input" bindinput="findInput" placeholder="请输入关键字" style='border:1rpx solid #D9D9D9;border-radius:25px;width:100%;padding-left:20rpx;margin-right:20rpx;'/>
+  <image src="/img/find.png" bindtap='findClick' mode="aspectFit" style='height:50rpx;width:50rpx;margin-top:15rpx;'></image>
+</view>
+<view wx:if="{{error_log}}"> 
+  <scroll-view class='films' scroll-y="true" bindscrolltolower="lower" bindscrolltoupper="bindscrolltoupper" style="height:{{scrollHeight}}px" >
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;border-top:1px solid #ccc'>
+        <text>每日一诗</text>
+      </view>
+      <view class='text'>
+        <text style='{{poem_hideText ? "-webkit-line-clamp: 2" : ""}};text-align:center;'>【清平乐】  
+
+春归何处？
+寂寞无行路。
+若有人知春去处，
+唤取归来同住。
+
+春无踪迹谁知？
+除非问取黄鹂。
+百啭无人能解，
+因风飞过蔷薇。
+
+↵</text>
+      </view>
+      <view class='controlText {{poem_hideClass}}' bindtap='poem_toggleText'>
+        <text></text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;border-top:1px solid #ccc'>
+        <text>每日一词</text>
+      </view>
+      <view class='text'>
+        <text style='{{idiom_hideText ? "-webkit-line-clamp: 2" : ""}}'>如花似玉[rú  huā  sì  yù]:\n像花和玉那样美好。形容女子姿容出众。\n《诗·魏风·汾沮洳》：“彼其之子，美如英……彼其之子，美如玉。</text>
+      </view>
+      <view class='controlText {{idiom_hideClass}}' bindtap='idiom_toggleText'>
+        <text></text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;border-top:1px solid #ccc'>
+        <text>每日一语</text>
+      </view>
+      <view class='text'>
+        <text style='text-align:center;'>捣（倒）蛋————卖鸡子儿（鸡蛋）的换筐篮</text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;border-top:1px solid #ccc'>
+        <text>每日一言</text>
+      </view>
+      <view class='text'>
+        <text style='text-align:center;'>民谚：立庙安神，因人设事</text>
+      </view>
+    </view>
+    <!--<view class='main'>
+      <view wx:for='{{daily}}' class='film' wx:key='{{index}}'>
+        <view style='margin-left:10px;display: flex;border-bottom:1px solid #ccc;'>
+          <view class='detail' bindtap='bindDetail' data-id='{{item.id}}'>
+            <title>{{item.year}}年{{item.month}}月{{item.day}}日{{item.title}}
+              
+          </view>
+        </view>
+      </view>
+      <view class='loading' hidden='{{!loading}}'>正在加载...</view>
+      <view class='complete' hidden='{{!comp}}'>已加载所有数据！</view>
+    </view>-->
+  </scroll-view>
+</view>
+<view wx:elif="!{{error_log}}"> 
+  <scroll-view class='films' scroll-y="true" bindscrolltolower="lower" bindscrolltoupper="bindscrolltoupper" style="height:{{scrollHeight}}px" >
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>每日一诗</text>
+      </view>
+      <view class='text'>
+        <text style='{{poem_hideText ? "-webkit-line-clamp: 2" : ""}};text-align:center;padding:5px 10px;'>{{poem.neirong}}</text>
+      </view>
+      <view class='controlText {{poem_hideClass}}' bindtap='poem_toggleText'>
+        <text></text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>每日一词</text>
+      </view>
+      <view class='text'>
+        <text style='{{idiom_hideText ? "-webkit-line-clamp: 2" : ""}}'>{{idiom.name}}[{{idiom.spell}}]:\n{{idiom.content}}\n{{idiom.derivation}}</text>
+      </view>
+      <view class='controlText {{idiom_hideClass}}' bindtap='idiom_toggleText'>
+        <text></text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>每日一语</text>
+      </view>
+      <view class='text'>
+        <text style='text-align:center;'>{{two_part.question}}————{{two_part.answer}}</text>
+      </view>
+    </view>
+    <view class="info">
+      <view style='padding:5px 20px;font-size:14px;border-bottom:1px solid #ccc;font-weight:bold;border-top:1px solid #ccc'>
+        <text>每日一言</text>
+      </view>
+      <view class='text'>
+        <text style='text-align:center;'>{{quotes.famous_name}}：{{quotes.famous_saying}}</text>
+      </view>
+    </view>
+    <!--<view class='main'>
+      <view wx:for='{{daily}}' class='film' wx:key='{{index}}'>
+        <view style='margin-left:10px;display: flex;border-bottom:1px solid #ccc;'>
+          <view class='detail' bindtap='bindDetail' data-id='{{item.id}}'>
+            <title>{{item.year}}年{{item.month}}月{{item.day}}日{{item.title}}
+              
+          </view>
+        </view>
+      </view>
+      <view class='loading' hidden='{{!loading}}'>正在加载...</view>
+      <view class='complete' hidden='{{!comp}}'>已加载所有数据！</view>
+    </view>-->
+  </scroll-view>
+</view>
